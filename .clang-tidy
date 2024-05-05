@@ -1,0 +1,43 @@
+Checks: '
+bugprone-*,
+modernize-*,
+misc-*,
+cert-*,
+google-*,
+readability-*,
+cppcoreguidelines-*,
+portability-std-allocator-const,
+-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+-cppcoreguidelines-pro-type-vararg,
+-cppcoreguidelines-pro-bounds-pointer-arithmetic,
+-cppcoreguidelines-pro-bounds-constant-array-index,
+-cppcoreguidelines-avoid-magic-numbers,
+-modernize-use-trailing-return-type,
+-misc-coroutine-hostile-raii,
+-google-objc-function-naming,
+-readability-identifier-length,
+-readability-magic-numbers,
+-readability-function-cognitive-complexity,
+-readability-implicit-bool-conversion,
+-bugprone-assignment-in-if-condition,
+-bugprone-copy-constructor-init,
+-bugprone-easily-swappable-parameters,
+-bugprone-forwarding-reference-overload,
+-bugprone-macro-parentheses,
+-bugprone-multi-level-implicit-pointer-conversion,
+-bugprone-signed-char-misuse,
+-bugprone-suspicious-include,
+-bugprone-switch-missing-default-case,
+-bugprone-undelegated-constructor,
+-bugprone-unused-return-value,
+'
+HeaderFilterRegex: 'embedded-app/src/.*'
+UseColor: true
+FormatStyle: file
+CheckOptions: 
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+  - key: readability-braces-around-statements.ShortStatementLines
+    value: '1'
+  - key: cppcoreguidelines-avoid-do-while.IgnoreMacros
+    value: true

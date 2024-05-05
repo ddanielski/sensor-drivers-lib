@@ -1,0 +1,6 @@
+#ifndef SENSOR_DRIVERS_ESP_INTERNAL_TEMP_SENSOR_CONFIG_H
+#define SENSOR_DRIVERS_ESP_INTERNAL_TEMP_SENSOR_CONFIG_H
+
+const constexpr int esp_internal_temp_sensor_data_size = sizeof(float);
+
+#endif // SENSOR_DRIVERS_ESP_INTERNAL_TEMP_SENSOR_CONFIG_H
