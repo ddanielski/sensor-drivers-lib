@@ -26,7 +26,9 @@ drivers::esp_internal_temp_sensor_driver::close()
 }
 
 esp_err_t
-drivers::esp_internal_temp_sensor_driver::read(std::vector<char>& buffer, uint32_t /*address*/, uint32_t bytes)
+drivers::esp_internal_temp_sensor_driver::read(char* buffer,
+                                               sensor_abstraction::SensorAddress /*address*/,
+                                               uint32_t bytes)
 {
     // Ensure the buffer has enough space to store a float
     if (bytes < sizeof(float))
@@ -36,14 +38,14 @@ drivers::esp_internal_temp_sensor_driver::read(std::vector<char>& buffer, uint32
 
     float tsens_out = 0.0F;
     ESP_ERROR_CHECK(temperature_sensor_get_celsius(esp_internal_temp_handle, &tsens_out));
-    memcpy(buffer.data(), &tsens_out, sizeof(float));
+    memcpy(buffer, &tsens_out, sizeof(float));
 
     return ESP_OK;
 }
 
 esp_err_t
-drivers::esp_internal_temp_sensor_driver::write(const std::vector<char>& /*buffer*/,
-                                                uint32_t /*address*/,
+drivers::esp_internal_temp_sensor_driver::write(const char* /*buffer*/,
+                                                sensor_abstraction::SensorAddress /*address*/,
                                                 uint32_t /*bytes*/)
 {
     return ESP_ERR_NOT_SUPPORTED;

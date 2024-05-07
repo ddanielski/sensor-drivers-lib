@@ -3,12 +3,12 @@
 
 #include <vector>
 
-#include "hardware_driver.hpp"
+#include "sensor_driver.hpp"
 #include <driver/temperature_sensor.h>
 
 namespace drivers {
 
-class esp_internal_temp_sensor_driver : public drivers_abstraction::hardware_driver
+class esp_internal_temp_sensor_driver : public sensor_abstraction::sensor_driver
 {
 public:
     esp_internal_temp_sensor_driver();
@@ -21,8 +21,8 @@ public:
 
     esp_err_t open() override;
     void      close() override;
-    esp_err_t read(std::vector<char>& buffer, uint32_t address, uint32_t bytes) override;
-    esp_err_t write(const std::vector<char>& buffer, uint32_t address, uint32_t bytes) override;
+    esp_err_t read(char* buffer, sensor_abstraction::SensorAddress address, uint32_t bytes) override;
+    esp_err_t write(const char* buffer, sensor_abstraction::SensorAddress address, uint32_t bytes) override;
     esp_err_t ioctl(int flag, void* value) override;
 
 private:
