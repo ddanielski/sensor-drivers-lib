@@ -1,1 +1,1 @@
-idf_component_register(SRCS INCLUDE_DIRS "include" REQUIRES drivers-abstraction PRIV_REQUIRES)
+idf_component_register(SRCS INCLUDE_DIRS "include" REQUIRES sensor-abstraction PRIV_REQUIRES)
